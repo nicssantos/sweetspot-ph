@@ -30,7 +30,7 @@
   list-style: none;
   display: flex;
   gap: 2rem;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.3px;
 }
 
 .nav-links a {
@@ -87,7 +87,7 @@
 
 .main-bg {
   height: calc(100vh - 120px);
-  background-image: url("../img/home-bg2.jpg");
+  background-image: url("../img/home-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
