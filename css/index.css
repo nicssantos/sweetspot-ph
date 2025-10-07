@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
   margin: 0;
@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 6rem;
+  padding: 1rem 4rem;
   background-image: url("../img/texture.png");
   background-color: rgba(253, 237, 198, 0.9);
   background-blend-mode: normal;
@@ -22,7 +22,7 @@
 
 .logo img {
   width: 80px;
-  height: auto; 
+  height: auto;
 }
 
 /* Nav links */
@@ -86,6 +86,10 @@
 }
 
 .main-bg {
+  display: flex;
+  justify-content: flex-end; /* horizontal: end = right */
+  align-items: flex-start; /* vertical: start = top */
+  padding-top: 2rem; /* move content down */
   height: calc(100vh - 120px);
   background-image: url("../img/home-bg.jpg");
   background-repeat: no-repeat;
@@ -93,11 +97,76 @@
   background-position: top center;
 }
 
+.headline {
+  text-align: end;
+  margin-top: 4rem;
+  margin-right: 8rem;
+}
+
+.headline h2 {
+  font-family: "Lobster Two", sans-serif;
+  font-style: italic;
+  font-size: 3rem;
+  color: #ffb749;
+}
+
+.headline h1 {
+  font-family: "Montserrat", sans-serif;
+  font-style: bold;
+  font-size: 5rem;
+  color: #fdedc6;
+  text-shadow: 9px 5px 1px rgba(253, 237, 198, 0.2);
+}
+
+.headline span {
+  font-size: 1rem;
+  text-shadow: 4px 3px 1px rgba(253, 237, 198, 0.2);
+}
+
+.description {
+  text-align: end;
+  margin-top: 8rem;
+  margin-right: 8rem;
+}
+
+.description p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #275780;
+}
+
+.description p span {
+  font-size: 1.1rem;
+}
+
+.seeDelightsBtn {
+  margin-top: 1rem;
+  font-family: "Montserrat", sans-serif;
+  display: inline-block;
+  padding: 0.6rem 3rem; 
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  color: #275780; 
+  background-color: #fdedc6; 
+  border: none;
+  border-radius: 20px; 
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.seeDelightsBtn:hover {
+  background-color: #f7dd9b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
 /* Responsive behavior */
 @media (max-width: 950px) {
   .nav-links,
   .search-container {
-    display: none; /* hide links & search initially */
+    display: none; 
     position: absolute;
     top: 60px;
     left: 0;
