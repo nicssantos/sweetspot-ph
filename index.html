@@ -7,23 +7,30 @@
     <title>Home | SweetSpot.ph</title>
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
   </head>
 
   <body>
     <nav class="navbar">
       <div class="logo">MyWebsite</div>
 
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="findAShop.html">Find A Shop</a></li>
-        <li><a href="desserts.html">Desserts</a></li>
-        <li><a href="buildYourDessert.html">Build-Your-Dessert</a></li>
-        <li><a href="about.html">About</a></li>
+      <!-- Hamburger Icon -->
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="findAShop.html">FIND A SHOP</a></li>
+        <li><a href="desserts.html">DESSERTS</a></li>
+        <li><a href="buildYourDessert.html">BUILD-YOUR-DESSERT</a></li>
+        <li><a href="about.html">ABOUT</a></li>
       </ul>
 
-      <div class="search-container">
-        <input type="text" placeholder="Search..." />
-        <button type="submit">🔍</button>
+      <div class="search-container" id="search-container">
+        <input type="text" placeholder="SEARCH" />
       </div>
     </nav>
 
