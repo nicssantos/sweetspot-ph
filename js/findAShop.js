@@ -21,18 +21,18 @@ const shops = [
         mapLink: ""
     },
     {
-        name: "",
+        name: "The Original Buko Pie Bakeshop",
         image: "../img/shops/",
         description: "",
-        address: "",
-        mapLink: ""
+        address: "Manila S Rd, Los Baños, Laguna, Philippines",
+        mapLink: "https://share.google/rCeSwrqSQqEbdDUWE"
     },
     {
-        name: "",
+        name: "Original Digman Halo-Halo and Home Made Siopao",
         image: "../img/shops/",
-        description: "",
-        address: "",
-        mapLink: ""
+        description: "This establishment has been serving its famous halo-halo since 1969, drawing patrons with its authentic flavor and traditional preparation methods.",
+        address: "H.F. Rubio St, Bacoor, Cavite, Philippines",
+        mapLink: "https://share.google/bNpBDxYTkSdoAF2AH"
     },
     {
         name: "",
