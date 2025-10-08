@@ -18,6 +18,7 @@
   height: 120px;
   font-family: "Montserrat", sans-serif;
   font-weight: 550;
+  position: relative;
 }
 
 .logo img {
@@ -77,6 +78,7 @@
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
+  z-index: 1001;
 }
 
 .hamburger div {
@@ -119,29 +121,28 @@
   text-align: right;
 }
 
-
 .headline {
   text-align: end;
-  /* padding: 3rem; */
 }
 
 .headline h2 {
   font-family: "Lobster Two", sans-serif;
   font-style: italic;
-  font-size: 3rem;
+  font-size: clamp(2rem, 3vw, 3.5rem);
   color: #ffb749;
 }
 
 .headline h1 {
   font-family: "Montserrat", sans-serif;
   font-style: bold;
-  font-size: 5rem;
+  font-size: clamp(3.5rem, 5vw, 6rem);
   color: #fdedc6;
   text-shadow: 9px 5px 1px rgba(253, 237, 198, 0.2);
+  white-space: nowrap;
 }
 
-.headline span {
-  font-size: 1rem;
+.headline h1 span {
+  font-size: 0.25em;
   text-shadow: 4px 3px 1px rgba(253, 237, 198, 0.2);
 }
 
@@ -153,22 +154,23 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #275780;
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  line-height: 1.4;
 }
-
 
 .seeDelightsBtn {
   margin-top: 1rem;
   font-family: "Montserrat", sans-serif;
   display: inline-block;
-  padding: 0.6rem 3rem; 
-  font-size: 1rem;
+  padding: 0.6rem 3rem;
+  font-size: clamp(0.85rem, 1vw, 1rem);
   font-weight: 600;
   text-align: center;
   text-decoration: none;
-  color: #275780; 
-  background-color: #fdedc6; 
+  color: #275780;
+  background-color: #fdedc6;
   border: none;
-  border-radius: 20px; 
+  border-radius: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -176,46 +178,129 @@
 .seeDelightsBtn:hover {
   background-color: #f7dd9b;
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive behavior */
 @media (max-width: 950px) {
-  .nav-links,
-  .search-container {
-    display: none; 
+  .navbar {
+    padding: 1rem 2rem;
+    height: auto;
+    min-height: 80px;
+  }
+
+  .nav-links {
+    display: none;
     position: absolute;
-    top: 60px;
+    top: 100%;
     left: 0;
     width: 100%;
-    background-color: #222;
+    background-image: url("../img/texture.png");
+    background-color: rgba(253, 237, 198, 0.98);
+    background-blend-mode: normal;
     flex-direction: column;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
+    gap: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.show {
+    display: flex;
   }
 
   .nav-links li {
-    margin: 0.5rem 0;
+    margin: 0;
+    padding: 0.8rem 2rem;
     text-align: center;
+    border-bottom: 1px solid rgba(39, 87, 128, 0.1);
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
   }
 
   .search-container {
-    padding: 0.5rem 1rem;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-image: url("../img/texture.png");
+    background-color: rgba(253, 237, 198, 0.98);
+    background-blend-mode: normal;
+    padding: 1.5rem 2rem;
+    margin: 0;
+    border: none;
+    border-top: 1px solid rgba(39, 87, 128, 0.1);
+    border-radius: 0;
+    z-index: 999;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .search-container.show {
+    display: flex;
+  }
+
+  .search-container input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid #275780;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    font-size: 1rem;
   }
 
   .hamburger {
     display: flex;
   }
 
-  .nav-links.show,
-  .search-container.show {
-    display: flex;
+  .main-bg {
+    height: calc(100vh - 80px);
+  }
+
+  .content {
+    width: 80%;
+    right: 10%;
   }
 }
 
 @media (max-width: 1200px) {
+  .main-bg {
+    position: relative;
+    height: calc(100vh - 115px);
+    background-image: url("../img/home-bg-sm.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+  }
+
   .search-container {
     display: none;
   }
 }
 
+@media (max-width: 768px) {
+  .content {
+    width: 90%;
+    right: 5%;
+  }
 
+  .headline h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .headline h1 {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+  }
+
+  .description p {
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  }
+}
