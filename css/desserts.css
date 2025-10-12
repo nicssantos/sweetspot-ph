@@ -25,15 +25,16 @@
 }
 
 .desserts-grid h1 {
-  color: #275780;
-  margin-bottom: 25px;
+  color: #91080e;
+  /* margin-bottom: 10px; */
   font-size: 28px;
+  letter-spacing: 4px;
   text-align: center;
 }
 
 .dessert-card {
   position: relative;
-  background: linear-gradient(135deg, #ffd89b 0%, #621818 100%);
+  background: linear-gradient(135deg, #dca03f 0%, #91080e 100%);
   border-radius: 20px;
   padding: 80px 20px 20px;
   margin-left: auto;
@@ -43,7 +44,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   min-height: 110px;
-  max-width: 90%;
+  max-width: 95%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -91,7 +92,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #764ba2;
+  color: #725f5f;
   font-size: 24px;
   text-align: center;
 }
