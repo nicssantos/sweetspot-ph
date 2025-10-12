@@ -22,6 +22,7 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 550;
   position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo img {
