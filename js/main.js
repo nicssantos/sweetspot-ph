@@ -7,48 +7,63 @@ hamburger.addEventListener("click", () => {
   searchContainer.classList.toggle("show");
 });
 
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar');
+  
+  if (window.scrollY > 50) { // When scrolled down 50px
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
 const desserts = [
   {
     name: "Halo-Halo",
+    tag: "ICONIC",
     image:
-      "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=400&fit=crop",
+      "../img/desserts/halo-halo.jpg",
+    description:
+      "A vibrant symphony of textures and flavors, this shaved ice masterpiece defines Filipino dessert culture.",
     history:
-      "Halo-halo, which means 'mix-mix' in Tagalog, is the quintessential Filipino dessert that evolved from the Japanese kakigori during the pre-war period. It became a symbol of Filipino creativity and resourcefulness, combining various ingredients into one colorful masterpiece. This beloved dessert represents the diversity of Filipino culture itself.",
+      "Evolved from Japanese kakigori during the pre-war era, Filipinos transformed it by incorporating local ingredients, creating a uniquely multicultural dessert that represents the archipelago's diverse influences.",
     ingredients: [
       "Shaved ice",
-      "Sweetened beans (red beans, white beans)",
-      "Sweetened banana",
-      "Nata de coco",
-      "Kaong (sugar palm fruit)",
-      "Ube halaya (purple yam jam)",
-      "Leche flan",
-      "Pinipig (crispy rice)",
+      "Sweetened beans (red beans, kidney beans)",
+      "Sweet plantains (saba)",
+      "Nata de coco & kaong",
+      "Leche flan & ube halaya",
       "Evaporated milk",
-      "Ice cream",
-      "Ube or cheese ice cream on top",
+      "Ube ice cream",
     ],
   },
   {
     name: "Leche Flan",
+    tag: "CELEBRATION",
     image:
-      "https://images.unsplash.com/photo-1624353409078-cc83d6e3a6e0?w=400&h=400&fit=crop",
+      "../img/desserts/leche-flan.jpg",
+    description:
+      "Ultra-rich custard with caramelized sugar, this dessert is the crown jewel of Filipino celebrations.",
     history:
-      "Introduced by the Spanish colonizers, leche flan is the Filipino version of crème caramel. The Filipino adaptation is richer and denser, using more egg yolks than the Spanish version. It has become a staple at celebrations and fiestas, symbolizing prosperity and festivity in Filipino culture.",
+      "Introduced during Spanish colonization, the Filipino version evolved to become notably richer and denser, using more egg yolks than its European counterpart, making it exceptionally decadent.",
     ingredients: [
       "Egg yolks (10-12 pieces)",
       "Condensed milk",
       "Evaporated milk",
-      "Granulated sugar (for caramel)",
+      "White sugar for caramel",
       "Vanilla extract",
       "Lemon zest (optional)",
     ],
   },
   {
     name: "Ube Halaya",
+    tag: "TRENDING",
     image:
-      "https://images.unsplash.com/photo-1606312619070-d48b4cbc528b?w=400&h=400&fit=crop",
+      "../img/desserts/ube-halaya.jpg",
+    description:
+      "Vibrant purple yam jam with a sweet, earthy flavor that has captivated the world.",
     history:
-      "Ube halaya, or purple yam jam, is a traditional Filipino delicacy that showcases the iconic purple yam. This labor-intensive dessert requires constant stirring for hours, making it a labor of love. Its vibrant purple color and unique flavor have made it a global sensation in recent years.",
+      "Made from native purple yam, this labor-intensive dessert requires hours of constant stirring. Its preparation has been passed down through generations, making it a special treat for important occasions.",
     ingredients: [
       "Purple yam (ube)",
       "Condensed milk",
@@ -60,130 +75,100 @@ const desserts = [
   },
   {
     name: "Bibingka",
+    tag: "FESTIVE",
     image:
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=400&fit=crop",
+      "../img/desserts/bibingka.jpg",
+    description:
+      "Traditional rice cake cooked in clay pots, embodying the warmth of Filipino Christmas traditions.",
     history:
-      "Bibingka is a traditional rice cake that's especially popular during Christmas season. Originally cooked in clay pots lined with banana leaves and heated with coals from above and below, this ancient cooking method gives bibingka its distinctive flavor. It's often sold outside churches after Simbang Gabi (dawn mass).",
+      "Dating back to pre-colonial times as offerings to deities, bibingka became intertwined with Christmas traditions during Spanish colonization. Today, it's sold outside churches during Simbang Gabi dawn masses.",
     ingredients: [
       "Rice flour",
       "Coconut milk",
-      "Eggs",
-      "Sugar",
+      "Eggs & sugar",
+      "Baking powder",
       "Butter",
-      "Salted egg",
+      "Salted egg slices",
       "Cheese",
       "Banana leaves",
-      "Baking powder",
+      "Grated coconut",
     ],
   },
   {
     name: "Turon",
+    tag: "STREET FOOD",
     image:
-      "https://images.unsplash.com/photo-1587248720327-e4f7b8b8f515?w=400&h=400&fit=crop",
+      "../img/desserts/turon.jpg",
+    description:
+      "Crispy caramelized banana spring rolls that perfectly balance sweetness and crunch.",
     history:
-      "Turon is a popular Filipino snack consisting of banana wrapped in spring roll wrapper and deep-fried to golden perfection. This street food favorite showcases Filipino ingenuity in creating delicious treats from simple, affordable ingredients. The caramelized coating makes it irresistibly crunchy.",
+      "Believed to have originated from Chinese spring rolls, Filipinos adapted the concept using local ingredients. It became a beloved street food, showcasing Filipino ingenuity in creating affordable yet delicious snacks.",
     ingredients: [
-      "Saba bananas (plantain)",
-      "Brown sugar",
+      "Saba bananas (plantains)",
+      "Jackfruit strips",
       "Spring roll wrappers",
-      "Jackfruit strips (optional)",
-      "Cooking oil for frying",
+      "Brown sugar",
+      "Cooking oil",
     ],
   },
   {
     name: "Buko Pandan",
+    tag: "REFRESHING",
     image:
-      "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=400&fit=crop",
+      "../img/desserts/buko-pandan.jpg",
+    description:
+      "Tropical dessert salad combining young coconut and fragrant pandan in a creamy base.",
     history:
-      "Buko pandan is a refreshing Filipino dessert salad that combines young coconut and pandan-flavored gelatin. Its light, sweet flavor and cool temperature make it perfect for the tropical climate. The dessert's distinctive green color comes from pandan leaves, a staple in Southeast Asian cuisine.",
+      "Emerging from the Visayas region in the late 20th century, this dessert gained nationwide popularity. It showcases Filipino creativity with tropical ingredients and the archipelago's abundant coconut resources.",
     ingredients: [
-      "Young coconut meat (buko)",
-      "Pandan-flavored gelatin",
+      "Young coconut strips (buko)",
+      "Pandan-flavored gulaman",
       "Condensed milk",
       "All-purpose cream",
-      "Pandan extract",
+      "Pandan leaves",
       "Sugar",
-    ],
-  },
-  {
-    name: "Sapin-Sapin",
-    image:
-      "https://images.unsplash.com/photo-1606312619070-d48b4cbc528b?w=400&h=400&fit=crop",
-    history:
-      "Sapin-sapin, meaning 'layers,' is a multi-colored layered glutinous rice cake. Each layer is flavored differently, creating a beautiful and delicious work of art. This dessert is commonly served during special occasions and represents the colorful and festive nature of Filipino celebrations.",
-    ingredients: [
-      "Glutinous rice flour",
-      "Coconut milk",
-      "Sugar",
-      "Ube flavoring (purple layer)",
-      "Jackfruit (yellow layer)",
-      "Food coloring",
-      "Latik (coconut curds) topping",
-    ],
-  },
-  {
-    name: "Mais Con Yelo",
-    image:
-      "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=400&fit=crop",
-    history:
-      "Mais con yelo is a refreshing Filipino dessert made with sweet corn, shaved ice, milk, and sugar. This humble dessert highlights the Filipino love for sweet corn and cold treats. It's a popular merienda (snack) especially during hot summer days.",
-    ingredients: [
-      "Sweet corn kernels",
-      "Shaved ice",
-      "Evaporated milk or condensed milk",
-      "Sugar",
-      "Ice cream (optional)",
+      "Nata de coco (optional)",
     ],
   },
 ];
 
-let selectedIndex = -1;
+function renderDesserts() {
+  const grid = document.getElementById("dessertsGrid");
 
-function createDessertCards() {
-  const list = document.getElementById("dessertsList");
-  desserts.forEach((dessert, index) => {
+  desserts.forEach((dessert) => {
     const card = document.createElement("div");
     card.className = "dessert-card";
+
+    const ingredientsList = dessert.ingredients
+      .map((ing) => `<li>${ing}</li>`)
+      .join("");
+
     card.innerHTML = `
-                    <img src="${dessert.image}" alt="${dessert.name}" class="dessert-img">
-                    <div class="dessert-name">${dessert.name}</div>
+                    <div class="image-container">
+                        <img src="${dessert.image}" alt="${dessert.name}" class="dessert-image">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="dessert-content">
+                        <span class="tag">${dessert.tag}</span>
+                        <h3>${dessert.name}</h3>
+                        <p>${dessert.description}</p>
+                        
+                        <div class="section">
+                            <h4>Origin Story</h4>
+                            <p>${dessert.history}</p>
+                        </div>
+                        
+                        <div class="section">
+                            <h4>Key Ingredients</h4>
+                            <ul class="ingredients-list">
+                                ${ingredientsList}
+                            </ul>
+                        </div>
+                    </div>
                 `;
-    card.onclick = () => showDessertInfo(index);
-    list.appendChild(card);
+
+    grid.appendChild(card);
   });
 }
 
-function showDessertInfo(index) {
-  selectedIndex = index;
-  const dessert = desserts[index];
-  const panel = document.getElementById("infoPanel");
-
-  // Update active state
-  document.querySelectorAll(".dessert-card").forEach((card, i) => {
-    card.classList.toggle("active", i === index);
-  });
-
-  panel.className = "info-panel";
-  panel.innerHTML = `
-                <div class="info-header">
-                    <img src="${dessert.image}" alt="${dessert.name}">
-                </div>
-                <div class="info-content">
-                    <h2>${dessert.name}</h2>
-                    <div class="info-section">
-                        <h3>History</h3>
-                        <p>${dessert.history}</p>
-                    </div>
-                    <div class="info-section">
-                        <h3>Ingredients</h3>
-                        <ul>
-                            ${dessert.ingredients
-                              .map((ing) => `<li>${ing}</li>`)
-                              .join("")}
-                        </ul>
-                    </div>
-                </div>
-            `;
-}
-
-createDessertCards();
+renderDesserts();
