@@ -39,7 +39,7 @@ const shops = [
     name: "Max's Restaurant - Karama",
     image: "../img/shops/maxs.jpg",
     description: "A Filipino restaurant in Dubai known for its hearty meals, classic home-style dishes, and warm hospitality. Perfect for cravings from back home.",
-    address: "Trade Centre Road Spinneys Building, Ground Floor, 11B St, Near to Burjuman, Dubai United Arab Emirates",
+    address: "Trade Centre Road Spinneys Building, Ground Floor, 11B St, Near to Burjuman, Dubai, UAE",
     mapLink: "https://maps.app.goo.gl/dCyoSrP9g9PctSRT6",
     city: "Dubai",
     lat: 25.249409220993982, 
@@ -47,9 +47,9 @@ const shops = [
   },
   {
     name: "Panaderia Restaurant",
-    image: "../img/shops/panaderia.jpg",
-    description: "A Filipino restaurant in ",
-    address: "QXR9+8V6 - Al Muntasir Rd - Al Nakheel - Ras Al Khaimah",
+    image: "../img/shops/panaderia.png",
+    description: "A Filipino restaurant in Ras Al Khaimah offering authentic home-style dishes, freshly baked breads, and traditional Filipino flavors for a taste of home.",
+    address: "QXR9+8V6 - Al Muntasir Rd - Al Nakheel - Ras Al Khaimah, UAE",
     mapLink: "https://maps.app.goo.gl/9F1AMqDKjAbMkgnZ7",
     city: "Ras al Khaimah",
     lat: 25.79095933743103, 
@@ -64,7 +64,7 @@ let markers = [];
 window.initMap = function () {
   const location = { lat: 25.7415, lng: 55.9023 }; // University of Stirling RAK
   map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 12,
+    zoom: 15,
     center: location,
   });
 };
@@ -114,6 +114,6 @@ document.getElementById("citySearch").addEventListener("input", (e) => {
 
   if (filteredShops.length > 0) {
     map.setCenter({ lat: filteredShops[0].lat, lng: filteredShops[0].lng });
-    map.setZoom(12);
+    map.setZoom(16);
   }
 });
