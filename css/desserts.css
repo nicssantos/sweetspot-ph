@@ -12,9 +12,9 @@
   padding: 6rem 3rem 4rem;
   text-align: center;
   background: radial-gradient(
-    circle at center,
+    circle at top,
     rgba(255, 251, 212, 0.99),
-    transparentgt
+    transparent
   );
   /* background-color:rgba(27, 23, 65, 0.3); */
 }
@@ -24,11 +24,12 @@
   font-style: italic;
   font-size: 4rem;
   font-weight: 700;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #20d0d3 0%, #180d71 100%);
+  color: #ffb749;
+  /* background: linear-gradient(135deg, #ffb749 0%, #fb0f0f 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
   background-clip: text;
 }
 
