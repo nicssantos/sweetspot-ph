@@ -8,8 +8,6 @@
     <link rel="icon" href="img/icon.png" type="image/png" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/shopFinder.css" />
-    <script src="js/main.js" defer></script>
-    <script src="js/shopFinder.js"></script>
   </head>
 
   <body>
@@ -50,16 +48,14 @@
               placeholder="Search your city"
             />
             <datalist id="cityOptions">
+              <option value="Ras al Khaimah"></option>
+              <option value="Dubai"></option>
               <option value="Manila"></option>
-              <option value="Cebu"></option>
-              <option value="Davao"></option>
-              <option value="Quezon City"></option>
-              <option value="Taguig">
-                <!-- Add more cities here -->
-              </option>
+              <option value="Laguna"></option>
+              <option value="Cavite"></option>
             </datalist>
           </div>
-          <div class="shopList" id="shopList"></div>
+          <div class="shop-list" id="shopList"></div>
         </div>
         <div id="map"></div>
       </div>
@@ -80,6 +76,8 @@
       </div>
     </footer>
 
+    <script src="js/main.js" defer></script>
+    <script src="js/shopFinder.js"></script>
     <script
       async
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6sZScKExRC3XCnQLqsQuqOO0iQDM6Mqc&callback=initMap"
