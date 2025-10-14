@@ -7,9 +7,9 @@
     <title>Find a Shop | sweetspot.ph</title>
     <link rel="icon" href="img/icon.png" type="image/png" />
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/findAShop.css" />
+    <link rel="stylesheet" href="css/shopFinder.css" />
     <script src="js/main.js" defer></script>
-    <script src="js/findAShop.js" defer></script>
+    <script src="js/shopFinder.js"></script>
   </head>
 
   <body>
@@ -32,28 +32,36 @@
         <li><a href="makeADessert.html">MAKE-A-DESSERT</a></li>
         <li><a href="about.html">ABOUT</a></li>
       </ul>
-
-      <!-- <div class="search-container" id="search-container">
-        <input type="text" placeholder="SEARCH" />
-      </div> -->
     </nav>
 
     <div class="main">
+      <div class="hero">
+        <h4>Nearest shop finder</h4>
+        <p>Simply search for your city to get the nearest shop(s) to you.</p>
+      </div>
       <div class="container">
-        <h1>Local Shops</h1>
-
-        <div class="search-bar">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search for a shop..."
-          />
-          <button id="searchBtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-</svg></button>
+        <div class="wrapper">
+          <h5>Find shops near you..</h5>
+          <div class="search-bar">
+            <input
+              type="text"
+              id="citySearch"
+              list="cityOptions"
+              placeholder="Search your city"
+            />
+            <datalist id="cityOptions">
+              <option value="Manila"></option>
+              <option value="Cebu"></option>
+              <option value="Davao"></option>
+              <option value="Quezon City"></option>
+              <option value="Taguig">
+                <!-- Add more cities here -->
+              </option>
+            </datalist>
+          </div>
+          <div class="shopList" id="shopList"></div>
         </div>
-
-        <ul id="shopList"></ul>
+        <div id="map"></div>
       </div>
     </div>
 
@@ -62,12 +70,19 @@
       <div class="footer-content">
         <div class="footer-left">
           <img src="img/icon.png" alt="Sweetspot Logo" />
-          <p>sweetspot.ph — celebrating Filipino desserts, one bite at a time.</p>
+          <p>
+            sweetspot.ph — celebrating Filipino desserts, one bite at a time.
+          </p>
         </div>
         <div class="footer-bottom">
           <p>© 2025 sweetspot.ph | All Rights Reserved</p>
         </div>
       </div>
     </footer>
+
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6sZScKExRC3XCnQLqsQuqOO0iQDM6Mqc&callback=initMap"
+    ></script>
   </body>
 </html>
