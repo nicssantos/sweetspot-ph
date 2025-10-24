@@ -3,7 +3,7 @@
 const desserts = [
   {
     name: "Halo-Halo",
-    tag: "ICONIC",
+    tag: "COLD",
     image:
       "../img/desserts/halo-halo.jpg",
     description:
@@ -22,7 +22,7 @@ const desserts = [
   },
   {
     name: "Leche Flan",
-    tag: "CELEBRATION",
+    tag: "COLD",
     image:
       "../img/desserts/leche-flan.jpg",
     description:
@@ -40,7 +40,7 @@ const desserts = [
   },
   {
     name: "Ube Halaya",
-    tag: "TRENDING",
+    tag: "CHILLED",
     image:
       "../img/desserts/ube-halaya.jpg",
     description:
@@ -58,7 +58,7 @@ const desserts = [
   },
   {
     name: "Bibingka",
-    tag: "FESTIVE",
+    tag: "HOT/WARM",
     image:
       "../img/desserts/bibingka.jpg",
     description:
@@ -79,7 +79,7 @@ const desserts = [
   },
   {
     name: "Turon",
-    tag: "STREET FOOD",
+    tag: "HOT/WARM",
     image:
       "../img/desserts/turon.jpg",
     description:
@@ -96,7 +96,7 @@ const desserts = [
   },
   {
     name: "Buko Pandan",
-    tag: "REFRESHING",
+    tag: "COLD",
     image:
       "../img/desserts/buko-pandan.jpg",
     description:
