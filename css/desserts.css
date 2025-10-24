@@ -25,7 +25,7 @@
 
 #topBtn:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-  transform: translateY(-2px); 
+  transform: translateY(-2px);
 }
 
 .heading {
@@ -70,7 +70,7 @@
   z-index: 1;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-size: clamp(1rem, 1.5vw, 1rem);
   color: #18456d;
   margin-top: 1rem;
   max-width: 800px;
@@ -78,6 +78,33 @@
   margin-right: auto;
   line-height: 1.6;
 }
+
+.filter-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.filters {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filters button {
+  font-family: "Montserrat", sans-serif;
+  display: inline-block;
+  background: rgba(248, 235, 204);
+  border: 2px solid #275780;
+  color: #153a5b;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: clamp(0.8rem, 1vw, 1.1rem);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -92,7 +119,7 @@
 
 .dessert-card {
   background: rgba(248, 235, 204, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.603);
   border-radius: 24px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);

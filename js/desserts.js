@@ -1,4 +1,26 @@
 // ********** DESSERTS PAGE ************
+let topButton = document.getElementById("topBtn");
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (
+    document.body.scrollTop > 300 ||
+    document.documentElement.scrollTop > 300
+  ) {
+    topButton.style.display = "block";
+  } else {
+    topButton.style.display = "none";
+  }
+}
+
+function backToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
 
 const desserts = [
   {
@@ -109,10 +131,11 @@ const desserts = [
   },
 ];
 
-function renderDesserts() {
+function renderDesserts(list = desserts) {
   const grid = document.getElementById("dessertsGrid");
+  grid.innerHTML = ""; // Clear previous cards
 
-  desserts.forEach((dessert) => {
+  list.forEach((dessert) => {
     const card = document.createElement("div");
     card.className = "dessert-card";
 
@@ -121,51 +144,54 @@ function renderDesserts() {
       .join("");
 
     card.innerHTML = `
-                    <div class="image-container">
-                        <img src="${dessert.image}" alt="${dessert.name}" class="dessert-image">
-                        <div class="image-overlay"></div>
-                    </div>
-                    <div class="dessert-content">
-                        <span class="tag">${dessert.tag}</span>
-                        <h3>${dessert.name}</h3>
-                        <p>${dessert.description}</p>
-                        
-                        <div class="section">
-                            <h4>Origin Story</h4>
-                            <p>${dessert.history}</p>
-                        </div>
-                        
-                        <div class="section">
-                            <h4>Key Ingredients</h4>
-                            <ul class="ingredients-list">
-                                ${ingredientsList}
-                            </ul>
-                        </div>
-                    </div>
-                `;
+      <div class="image-container">
+        <img src="${dessert.image}" alt="${dessert.name}" class="dessert-image">
+        <div class="image-overlay"></div>
+      </div>
+      <div class="dessert-content">
+        <span class="tag">${dessert.tag}</span>
+        <h3>${dessert.name}</h3>
+        <p>${dessert.description}</p>
+        
+        <div class="section">
+          <h4>Origin Story</h4>
+          <p>${dessert.history}</p>
+        </div>
+        
+        <div class="section">
+          <h4>Key Ingredients</h4>
+          <ul class="ingredients-list">
+            ${ingredientsList}
+          </ul>
+        </div>
+      </div>
+    `;
 
     grid.appendChild(card);
   });
 }
 
+// Render all desserts initially
 renderDesserts();
 
-let topButton = document.getElementById("topBtn");
-window.onscroll = function () {
-  scrollFunction();
-};
+// Filter buttons
+const buttons = document.querySelectorAll(".filters button");
 
-function scrollFunction() {
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-    topButton.style.display = "block";
-  } else {
-    topButton.style.display = "none";
-  }
-}
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    // Toggle active state
+    buttons.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
 
-function backToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+    const filter = button.dataset.filter;
+
+    // Filter based on tag
+    const filtered =
+      filter === "ALL"
+        ? desserts
+        : desserts.filter((d) => d.tag === filter);
+
+    // Render filtered list
+    renderDesserts(filtered);
   });
-}
+});
