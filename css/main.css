@@ -37,13 +37,13 @@
 }
 
 .logo img {
-  width: 80px;
+  width: 140px;
   height: auto;
   transition: width 0.3s ease;
 }
 
 .navbar.scrolled .logo img {
-  width: 60px;
+  width: 80px;
 }
 
 /* Nav links */
@@ -128,7 +128,7 @@ body {
 }
 
 .footer-left img {
-  width: 40px;
+  width: 80px;
   margin-bottom: 0.5rem;
 }
 
@@ -182,48 +182,11 @@ body {
     font-weight: 600;
   }
 
-  .search-container {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-image: url("../img/texture.png");
-    background-color: rgba(253, 237, 198, 0.98);
-    background-blend-mode: normal;
-    padding: 1.5rem 2rem;
-    margin: 0;
-    border: none;
-    border-top: 1px solid rgba(39, 87, 128, 0.1);
-    border-radius: 0;
-    z-index: 999;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .search-container.show {
-    display: flex;
-  }
-
-  .search-container input {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border: 2px solid #275780;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.3);
-    font-size: 1rem;
-  }
-
   .hamburger {
     display: flex;
   }
 
   .main-bg {
     height: calc(100vh - 80px);
-  }
-}
-
-@media (max-width: 1200px) {
-  .search-container {
-    display: none;
   }
 }
