@@ -4,8 +4,7 @@ const desserts = [
   {
     name: "Halo-Halo",
     tag: "COLD",
-    image:
-      "../img/desserts/halo-halo.jpg",
+    image: "../img/desserts/halo-halo.jpg",
     description:
       "A vibrant symphony of textures and flavors, this shaved ice masterpiece defines Filipino dessert culture.",
     history:
@@ -23,8 +22,7 @@ const desserts = [
   {
     name: "Leche Flan",
     tag: "COLD",
-    image:
-      "../img/desserts/leche-flan.jpg",
+    image: "../img/desserts/leche-flan.jpg",
     description:
       "Ultra-rich custard with caramelized sugar, this dessert is the crown jewel of Filipino celebrations.",
     history:
@@ -41,8 +39,7 @@ const desserts = [
   {
     name: "Ube Halaya",
     tag: "CHILLED",
-    image:
-      "../img/desserts/ube-halaya.jpg",
+    image: "../img/desserts/ube-halaya.jpg",
     description:
       "Vibrant purple yam jam with a sweet, earthy flavor that has captivated the world.",
     history:
@@ -59,8 +56,7 @@ const desserts = [
   {
     name: "Bibingka",
     tag: "HOT/WARM",
-    image:
-      "../img/desserts/bibingka.jpg",
+    image: "../img/desserts/bibingka.jpg",
     description:
       "Traditional rice cake cooked in clay pots, embodying the warmth of Filipino Christmas traditions.",
     history:
@@ -80,8 +76,7 @@ const desserts = [
   {
     name: "Turon",
     tag: "HOT/WARM",
-    image:
-      "../img/desserts/turon.jpg",
+    image: "../img/desserts/turon.jpg",
     description:
       "Crispy caramelized banana spring rolls that perfectly balance sweetness and crunch.",
     history:
@@ -97,8 +92,7 @@ const desserts = [
   {
     name: "Buko Pandan",
     tag: "COLD",
-    image:
-      "../img/desserts/buko-pandan.jpg",
+    image: "../img/desserts/buko-pandan.jpg",
     description:
       "Tropical dessert salad combining young coconut and fragrant pandan in a creamy base.",
     history:
@@ -155,3 +149,23 @@ function renderDesserts() {
 }
 
 renderDesserts();
+
+let topButton = document.getElementById("topBtn");
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    topButton.style.display = "block";
+  } else {
+    topButton.style.display = "none";
+  }
+}
+
+function backToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
