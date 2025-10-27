@@ -33,16 +33,25 @@
     </nav>
 
     <div class="main">
+      <button onclick="backToTop()" id="topBtn" title="Go to top"><img src="https://www.svgrepo.com/show/500715/top.svg" alt="Upward arrow" width="25px" height="auto"></button>
       <div class="heading">
         <div class="heading-overlay"></div>
         <h4>Nearest Shop Finder</h4>
-        <p>Search for your city or use your location to find the nearest shop to you</p>
+        <p>
+          Search for your city or use your location to find the nearest shop to
+          you
+        </p>
       </div>
       <div class="container">
         <div class="wrapper">
           <h5>Find shops near you..</h5>
           <div class="search-bar">
-            <img src="https://www.svgrepo.com/show/520923/search.svg" alt="Search icon" width="30px" height="auto">
+            <img
+              src="https://www.svgrepo.com/show/520923/search.svg"
+              alt="Search icon"
+              width="30px"
+              height="auto"
+            />
             <input
               type="text"
               id="citySearch"
@@ -56,8 +65,9 @@
               <option value="Laguna"></option>
               <option value="Cavite"></option>
             </datalist>
-            <
           </div>
+          <div id="location-btn"><button class="location-btn">Use Your Location</button></div>
+          <div id="location-status" class="location-status" style="display: none";></div>
           <div class="shop-list" id="shopList"></div>
         </div>
         <div id="map"></div>

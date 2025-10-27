@@ -57,7 +57,7 @@
   font-family: "Lobster Two", sans-serif;
   font-style: italic;
   font-size: clamp(2.5rem, 4vw, 4rem);
-  background: linear-gradient(135deg, #ff1313 0%, #2d2f69 50%, #f73232 100%);
+  background: linear-gradient(135deg, #7ac1ff 0%, #2d2f69 50%, #9fbefb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -70,7 +70,7 @@
   z-index: 1;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  font-size: clamp(1rem, 1.5vw, 1rem);
+  font-size: clamp(1rem, 1.5vw, 1.4rem);
   color: #18456d;
   margin-top: 1rem;
   max-width: 800px;
