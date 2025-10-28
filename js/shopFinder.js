@@ -159,7 +159,7 @@ function displayShops(shopsToDisplay) {
       <div class="shop-info">
         <h3>${shop.name}</h3>
         <p class="shop-desc">${shop.description}</p>
-        <p class="shop-address">📍 ${shop.address}</p>
+        <p class="shop-address">${shop.address}</p>
         ${
           shop.distance
             ? `<p class="shop-distance">🚗 ${shop.distance.toFixed(

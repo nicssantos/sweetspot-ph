@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
 .main {
-  position: relative;
-  min-height: calc(100vh - 120px);
-  background-color: #275780;
+ background: url("../img/desserts-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  height: calc(100vh - 120px);
   padding: 5rem 3rem 8rem 3rem;
 }
 
@@ -19,7 +20,7 @@
 .content h2 {
   font-family: "Lobster Two", sans-serif;
   font-size: clamp(2.5rem, 4vw, 5rem);
-  color: #ffce6b;
+  color: #f8bc44;
 }
 
 .content p {
@@ -41,7 +42,7 @@
   font-weight: 700;
   font-size: clamp(1.2rem, 4vw, 1.9rem);
   color: #f8ebcc;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .desserts-grid {

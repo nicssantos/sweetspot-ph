@@ -5,15 +5,16 @@
   min-height: calc(100vh - 120px);
 }
 
+/* Fixed Video Background */
 .video-background {
   position: fixed;
-  top: 0;
+  top: 0; /* Start from top of page */
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100vh; /* Cover full viewport height */
   overflow: hidden;
   z-index: 0;
-  pointer-events: none;
+  pointer-events: none; /* Allow clicking through to content below */
 }
 
 .video-background video {
@@ -28,14 +29,15 @@
   object-fit: cover;
 }
 
+/* Blue overlay for better readability */
 .video-background::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(39, 87, 128, 0.85);
+  background: rgba(39, 87, 128, 0.85); /* Blue overlay with 85% opacity */
   pointer-events: none;
 }
 
@@ -66,7 +68,7 @@
   text-align: center;
   background: linear-gradient(180deg, #ffce49 0%, #ffb749 100%);
   overflow: hidden;
-  z-index: 10;
+  z-index: 10; /* Above video */
 }
 
 .heading-overlay {
@@ -121,6 +123,7 @@
   display: flex;
   align-items: center;
   border-radius: 20px;
+  /* border: 2px solid #f8ebcc; */
   background-color: #f8ebcc;
   overflow: hidden;
   max-width: 90%;
@@ -176,45 +179,110 @@
 }
 
 .shop-card {
+  position: relative;
   overflow: hidden;
   margin: 1rem 0 1.5rem;
-  padding: 2rem;
-  background: rgba(248, 235, 204);
+  padding: 0;
+  background: linear-gradient(135deg, #fff9e6 0%, #ffefc7 100%);
   border-radius: 20px;
   max-width: 90%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 206, 73, 0.3);
+}
+
+.shop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 206, 73, 0.6);
 }
 
 .image-container {
   position: relative;
-  width: 45%;
-  height: 100px;
+  width: 100%;
+  height: 180px;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .shop-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.shop-card:hover .shop-image {
+  transform: scale(1.05);
+}
+
+.shop-info {
+  padding: 1.5rem;
 }
 
 .shop-info h3 {
-  font-size: 20px;
-  color: #303131;
+  font-size: 22px;
+  color: #275780;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
 .shop-info p {
-  color: #303131;
+  color: #4a4a4a;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .shop-desc {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+  color: #666;
 }
 
 .shop-address {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
+  color: #275780;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.shop-address::before {
+  content: "📍";
+  font-size: 18px;
+}
+
+.shop-distance {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffb749;
+  display: inline-block;
+  background: rgba(255, 206, 73, 0.2);
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  margin: 0.5rem 0;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #275780 0%, #1a4566 100%);
+  color: #f8ebcc;
+  text-decoration: none;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(39, 87, 128, 0.3);
+}
+
+.map-link:hover {
+  background: linear-gradient(135deg, #1a4566 0%, #275780 100%);
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(39, 87, 128, 0.5);
 }
 
 #map {
@@ -224,10 +292,12 @@
   box-shadow: 0 0px 10px rgba(255, 252, 215, 0.379);
 }
 
+/* Ensure footer appears above video */
 .footer {
   position: relative;
   z-index: 10;
 }
+
 @media (max-width: 700px) {
   .container {
     grid-template-columns: 1fr;
@@ -239,7 +309,12 @@
     max-height: 60vh;
   }
 
+  /* Video covers full viewport on mobile */
   .video-background {
     top: 0;
+    height: 100vh;
   }
+}
+
+@media (max-width: 480px) {
 }
