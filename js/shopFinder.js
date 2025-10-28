@@ -1,4 +1,4 @@
-// ********** SHOP FINDER PAGE ************ 
+// ********** SHOP FINDER PAGE ************
 
 let topButton = document.getElementById("topBtn");
 window.onscroll = function () {
@@ -22,7 +22,6 @@ function backToTop() {
     behavior: "smooth",
   });
 }
-
 
 // Shops data
 const shops = [
@@ -179,10 +178,12 @@ function displayShops(shopsToDisplay) {
       map.setCenter({ lat: shop.lat, lng: shop.lng });
       map.setZoom(16);
       infoWindow.open(map, marker);
-      window.scrollTo({
-        top: 280,
-        behavior: "smooth"
-      });
+      if (document.documentElement.clientWidth >= 1024) {
+        window.scrollTo({
+          top: 280,
+          behavior: "smooth",
+        });
+      }
     });
 
     shopListEl.appendChild(card);
