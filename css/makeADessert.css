@@ -1,29 +1,30 @@
 .main {
- background: url("../img/desserts-bg.png");
+  background: url("../img/desserts-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  height: calc(100vh - 120px);
-  padding: 5rem 3rem 8rem 3rem;
+  min-height: calc(100vh - 60px);
+  padding: 3rem;
 }
 
-.content {
+.selection-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   width: 75%;
   margin: auto;
+  padding-top: 3rem;
 }
 
-.content h2 {
+.selection-page h2 {
   font-family: "Lobster Two", sans-serif;
   font-size: clamp(2.5rem, 4vw, 5rem);
   color: #f8bc44;
 }
 
-.content p {
+.selection-page p {
   margin-top: 5px;
   font-family: "Montserrat", sans-serif;
   font-size: clamp(1rem, 4vw, 1.7rem);
@@ -69,6 +70,7 @@
   z-index: 2;
   transition: transform 0.3s ease;
   object-fit: contain;
+  cursor: pointer;
 }
 
 .dessert-item:hover .dessert-image {
@@ -92,7 +94,7 @@
   width: 300px;
 }
 
-.dessert-btn:hover {
+.dessert-item:hover .dessert-btn {
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
   background: linear-gradient(135deg, #ffd89b 0%, #f8ebcc 100%);
@@ -100,6 +102,32 @@
 
 .dessert-btn:active {
   transform: translateY(-2px);
+}
+
+.building-page {
+  margin: auto;
+}
+
+.menu-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    padding: 0.7rem 1rem;
+    border-radius: 25px;
+    background-color: #f8ebcc;
+    color:#0f3352;
+    border: none;
+    box-shadow: 0px 5px 10px rgba(49, 49, 49, 0.305);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+    transform: translateY(-2px);
+}
+
+.menu-btn img {
+    width: 0.8rem;
 }
 
 @media (max-width: 768px) {
@@ -125,7 +153,12 @@
 
 @media (max-width: 480px) {
   .main {
-    padding: 3rem 1rem 5rem 1rem;
+    padding: 2rem 1rem 4rem 1rem;
+  }
+
+  .selection-page {
+    padding-top: 0;
+    margin-top: 10px;
   }
 
   .desserts-grid {

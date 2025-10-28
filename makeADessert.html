@@ -35,14 +35,18 @@
     </nav>
 
     <div class="main">
-      <div class="content">
+      <div class="selection-page" style="display: none">
         <h2>Make-a-Dessert</h2>
         <p>Create your own Filipino treat - we'll guide you!</p>
         <div class="selection-wrapper">
           <h4>Choose your dessert:</h4>
           <ul class="desserts-grid">
             <li class="dessert-item">
-              <img src="../img/mad/halo-halo.png" alt="Halo-Halo" class="dessert-image" />
+              <img
+                src="../img/mad/halo-halo.png"
+                alt="Halo-Halo"
+                class="dessert-image"
+              />
               <button class="dessert-btn" onclick="selectDessert('halo-halo')">
                 Halo-Halo
               </button>
@@ -76,12 +80,14 @@
           </ul>
         </div>
       </div>
-      <button class="menu-btn" style="display: none">
-        <img src="../img/left-arrow.svg" alt="Left arrow" />Menu
-      </button>
-      <div class="grid" style="display: none">
-        <div class="panel-one"></div>
-        <div class="panel-two"></div>
+      <div class="building-page">
+        <button class="menu-btn">
+          <img src="../img/left-arrow.svg" alt="Left arrow" />Menu
+        </button>
+        <div class="grid">
+          <div class="panel-one"></div>
+          <div class="panel-two"></div>
+        </div>
       </div>
     </div>
 
