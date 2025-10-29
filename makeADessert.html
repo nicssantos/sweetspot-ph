@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/makeADessert.css" />
     <script src="js/main.js" defer></script>
-    <script src="js/makeADessert.js" defer></script>
   </head>
 
   <body>
@@ -35,7 +34,7 @@
     </nav>
 
     <div class="main">
-      <div class="selection-page" style="display: none">
+      <div class="selection-page">
         <h2>Make-a-Dessert</h2>
         <p>Create your own Filipino treat - we'll guide you!</p>
         <div class="selection-wrapper">
@@ -47,9 +46,7 @@
                 alt="Halo-Halo"
                 class="dessert-image"
               />
-              <button class="dessert-btn" onclick="selectDessert('halo-halo')">
-                Halo-Halo
-              </button>
+              <button class="dessert-btn">Halo-Halo</button>
             </li>
             <li class="dessert-item">
               <img
@@ -57,12 +54,7 @@
                 alt="Saging con Yelo"
                 class="dessert-image"
               />
-              <button
-                class="dessert-btn"
-                onclick="selectDessert('saging-con-yelo')"
-              >
-                Saging con Yelo
-              </button>
+              <button class="dessert-btn">Saging con Yelo</button>
             </li>
             <li class="dessert-item">
               <img
@@ -70,17 +62,13 @@
                 alt="Mais con Yelo"
                 class="dessert-image"
               />
-              <button
-                class="dessert-btn"
-                onclick="selectDessert('mais-con-yelo')"
-              >
-                Mais con Yelo
-              </button>
+              <button class="dessert-btn">Mais con Yelo</button>
             </li>
           </ul>
         </div>
       </div>
-      <div class="building-page">
+      <div class="building-page" style="display: none">
+        <button onclick="backToTop()" id="topBtn" title="Go to top"><img src="https://www.svgrepo.com/show/500715/top.svg" alt="Upward arrow" width="25px" height="auto"></button>
         <button class="menu-btn">
           <img src="../img/left-arrow.svg" alt="Left arrow" />Menu
         </button>
@@ -105,5 +93,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="js/makeADessert.js" defer></script>
   </body>
 </html>
