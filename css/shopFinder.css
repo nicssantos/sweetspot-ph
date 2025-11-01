@@ -31,7 +31,7 @@
 
 /* Blue overlay for better readability */
 .video-background::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -68,8 +68,9 @@
   text-align: center;
   background: linear-gradient(180deg, #ffce49 0%, #ffb749 100%);
   overflow: hidden;
-  z-index: 10; /* Above video */
+  z-index: 10;
 }
+
 
 .heading-overlay {
   position: absolute;
@@ -86,13 +87,15 @@
   pointer-events: none;
 }
 
-.heading h4 {
+.heading h1 {
   font-family: "Lobster Two", sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
   font-style: italic;
   margin-bottom: 1rem;
   color: #275780;
 }
+
+
 
 .heading p {
   font-family: "Montserrat", sans-serif;

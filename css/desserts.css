@@ -1,4 +1,4 @@
-.main {
+body {
   background: url("../img/desserts-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -51,7 +51,7 @@
   pointer-events: none;
 }
 
-.heading h2 {
+.heading h1 {
   position: relative;
   z-index: 1;
   font-family: "Lobster Two", sans-serif;
