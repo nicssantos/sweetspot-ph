@@ -89,6 +89,8 @@ let map;
 let markers = [];
 let userMarker;
 let userLocation = null;
+let currentShops = [];
+let displayedCount = 3;
 
 // Initialize the map with University of Stirling RAK as default
 window.initMap = function () {
@@ -103,7 +105,10 @@ window.initMap = function () {
 };
 
 // Display shops on map and in list
-function displayShops(shopsToDisplay) {
+function displayShops(shopsToDisplay, showAll = false) {
+  currentShops = shopsToDisplay;
+  const shopsToShow = showAll ? shopsToDisplay : shopsToDisplay.slice(0, 3);
+
   // Clear existing markers
   markers.forEach((marker) => marker.setMap(null));
   markers = [];
@@ -112,8 +117,8 @@ function displayShops(shopsToDisplay) {
   const shopListEl = document.getElementById("shopList");
   shopListEl.innerHTML = "";
 
-  shopsToDisplay.forEach((shop, index) => {
-    // Create marker
+  // Render shop cards
+  shopsToShow.forEach((shop) => {
     const marker = new google.maps.Marker({
       position: { lat: shop.lat, lng: shop.lng },
       map: map,
@@ -121,83 +126,53 @@ function displayShops(shopsToDisplay) {
       animation: google.maps.Animation.DROP,
     });
 
-    // Info window for marker
     const infoWindow = new google.maps.InfoWindow({
-      content: `
-        <div style="font-family: 'Montserrat', sans-serif;">
-          <h3 style="margin: 0 0 8px 0; color: #275780;">${shop.name}</h3>
-          <p style="margin: 0 0 4px 0;">${shop.description}</p>
-          ${
-            shop.distance
-              ? `<p style="color: #ffb749; font-weight: 600; margin: 4px 0;">📍 ${shop.distance.toFixed(
-                  1
-                )} km away</p>`
-              : ""
-          }
-          <a href="${
-            shop.mapLink
-          }" target="_blank" style="color: #4a9fd8;">View on Google Maps</a>
-        </div>
-      `,
+      content: `<div style="font-family: 'Montserrat', sans-serif;">
+                  <h3 style="margin:0 0 8px 0;color:#275780;">${shop.name}</h3>
+                  <p style="margin:0 0 4px 0;">${shop.description}</p>
+                  <a href="${shop.mapLink}" target="_blank" style="color:#4a9fd8;">View on Google Maps</a>
+                </div>`,
     });
 
-    marker.addListener("click", () => {
-      infoWindow.open(map, marker);
-    });
-
+    marker.addListener("click", () => infoWindow.open(map, marker));
     markers.push(marker);
 
-    // Create shop card
     const card = document.createElement("div");
     card.className = "shop-card";
     card.innerHTML = `
       <div class="image-container">
-        <img src="${shop.image}" alt="${
-      shop.name
-    }" class="shop-image" onerror="this.src='../img/shops/placeholder.jpg'">
+        <img src="${shop.image}" alt="${shop.name}" class="shop-image" onerror="this.src='../img/shops/placeholder.jpg'">
       </div>
       <div class="shop-info">
         <h3>${shop.name}</h3>
         <p class="shop-desc">${shop.description}</p>
         <p class="shop-address">${shop.address}</p>
-        ${
-          shop.distance
-            ? `<p class="shop-distance">🚗 ${shop.distance.toFixed(
-                1
-              )} km away</p>`
-            : ""
-        }
-        <a href="${
-          shop.mapLink
-        }" target="_blank" class="map-link">View on Map →</a>
+        <a href="${shop.mapLink}" target="_blank" class="map-link">View on Map →</a>
       </div>
     `;
-
-    // Click card to center map on shop
-    card.addEventListener("click", () => {
-      map.setCenter({ lat: shop.lat, lng: shop.lng });
-      map.setZoom(16);
-      infoWindow.open(map, marker);
-      if (document.documentElement.clientWidth >= 1024) {
-        window.scrollTo({
-          top: 280,
-          behavior: "smooth",
-        });
-      }
-    });
-
     shopListEl.appendChild(card);
   });
 
-  // Center map on first shop if available
-  if (shopsToDisplay.length > 0) {
-    const bounds = new google.maps.LatLngBounds();
-    shopsToDisplay.forEach((shop) => {
-      bounds.extend({ lat: shop.lat, lng: shop.lng });
+  // Add "Show More / Show Less" button if needed
+  if (shopsToDisplay.length > 3) {
+    const toggleBtn = document.createElement("button");
+    toggleBtn.className = "show-more-btn";
+    toggleBtn.textContent = showAll
+      ? "Show Less"
+      : `Show More (${shopsToDisplay.length - 3} more)`;
+
+    toggleBtn.addEventListener("click", () => {
+      displayShops(shopsToDisplay, !showAll);
     });
-    if (userMarker) {
-      bounds.extend(userMarker.getPosition());
-    }
+
+    shopListEl.appendChild(toggleBtn);
+  }
+
+  // Center map on displayed shops
+  if (shopsToShow.length > 0) {
+    const bounds = new google.maps.LatLngBounds();
+    shopsToShow.forEach((shop) => bounds.extend({ lat: shop.lat, lng: shop.lng }));
+    if (userMarker) bounds.extend(userMarker.getPosition());
     map.fitBounds(bounds);
   }
 }
@@ -208,11 +183,9 @@ document.getElementById("citySearch").addEventListener("input", (e) => {
 
   if (city === "") {
     // Show all shops if search is empty and no user location
-    // Show only closest 3 if user location is active
     if (userLocation) {
       const shopsWithDistance = calculateDistances(shops, userLocation);
-      const closestShops = shopsWithDistance.slice(0, 3);
-      displayShops(closestShops);
+      displayShops(shopsWithDistance);
     } else {
       displayShops(shops);
     }
@@ -224,11 +197,10 @@ document.getElementById("citySearch").addEventListener("input", (e) => {
     shop.city.toLowerCase().includes(city)
   );
 
-  // Apply distance calculation and limit to top 3 if user location is available
+  // Apply distance calculation if user location is available
   if (userLocation) {
     const shopsWithDistance = calculateDistances(filteredShops, userLocation);
-    const closestShops = shopsWithDistance.slice(0, 3);
-    displayShops(closestShops);
+    displayShops(shopsWithDistance);
   } else {
     displayShops(filteredShops);
   }
@@ -287,8 +259,7 @@ function getUserLocation() {
 
       // Calculate distances and update display
       const shopsWithDistance = calculateDistances(shops, userLocation);
-      const closestShops = shopsWithDistance.slice(0, 3);
-      displayShops(closestShops);
+      displayShops(shopsWithDistance);
 
       // Center map
       map.setCenter(userLocation);
@@ -387,27 +358,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
 // Scroll animations
 const observerOptions = {
   threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
+  rootMargin: "0px 0px -50px 0px",
 };
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('fade-in-visible');
+      entry.target.classList.add("fade-in-visible");
       observer.unobserve(entry.target);
     }
   });
 }, observerOptions);
 
-document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('.wrapper h5, .search-bar, #location-btn, .shop-card, #map');
-  
-  sections.forEach(section => {
-    section.classList.add('fade-in-element');
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(
+    ".wrapper h5, .search-bar, #location-btn, .shop-card, #map"
+  );
+
+  sections.forEach((section) => {
+    section.classList.add("fade-in-element");
     observer.observe(section);
   });
 });
@@ -415,8 +387,12 @@ document.addEventListener('DOMContentLoaded', () => {
 const shopListObserver = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
     mutation.addedNodes.forEach((node) => {
-      if (node.nodeType === 1 && node.classList.contains('shop-card')) {
-        node.classList.add('fade-in-element');
+      if (
+        node.nodeType === 1 &&
+        (node.classList.contains("shop-card") ||
+          node.classList.contains("show-more-btn"))
+      ) {
+        node.classList.add("fade-in-element");
         observer.observe(node);
       }
     });
@@ -424,7 +400,7 @@ const shopListObserver = new MutationObserver((mutations) => {
 });
 
 // Start observing the shop list for new cards
-const shopList = document.getElementById('shopList');
+const shopList = document.getElementById("shopList");
 if (shopList) {
   shopListObserver.observe(shopList, { childList: true });
 }

@@ -300,6 +300,25 @@
   margin: 0.5rem 0;
 }
 
+.show-more-btn {
+  font-family: 'Montserrat', sans-serif;
+  display: block;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  border: none;
+  background-color: #fdedc6;
+  color:#0b3258;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.show-more-btn:hover {
+  background-color: #f7dd9b;
+  transform: translateY(-2px);
+}
+
+
 .map-link {
   display: inline-block;
   margin-top: 1rem;
