@@ -6,7 +6,6 @@ body {
   background-attachment: fixed;
 }
 
-/* Scroll animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -18,20 +17,17 @@ body {
   }
 }
 
-/* Elements start hidden */
 .fade-in-element {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* Visible state when scrolled into view */
 .fade-in-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Stagger feature cards */
 .feature-card:nth-child(1).fade-in-visible {
   transition-delay: 0.1s;
 }

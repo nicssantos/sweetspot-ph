@@ -346,7 +346,6 @@
   box-shadow: 0 0px 20px rgba(36, 36, 36, 0.379);
 }
 
-/* Ensure footer appears above video */
 .footer {
   position: relative;
   z-index: 10;
@@ -363,7 +362,6 @@
     max-height: 60vh;
   }
 
-  /* Video covers full viewport on mobile */
   .video-background {
     top: 0;
     height: 100vh;

@@ -3,7 +3,7 @@
 /* #f8ebcc 
  #275780 */
 body {
-  padding-top: 120px; 
+  padding-top: 120px;
 }
 
 * {
@@ -30,12 +30,11 @@ body {
   right: 0;
   z-index: 1000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: height 0.3s ease, padding 0.3s ease; 
+  transition: height 0.3s ease, padding 0.3s ease;
 }
 
-/* Scrolled state */
 .navbar.scrolled {
-  height: 80px; 
+  height: 80px;
   padding: 0.5rem 3rem;
 }
 
@@ -49,7 +48,6 @@ body {
   width: 80px;
 }
 
-/* Nav links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -108,7 +106,6 @@ body {
   opacity: 0.8;
 }
 
-/* Responsive behavior */
 @media (max-width: 950px) {
   .navbar {
     padding: 1rem 2rem;
