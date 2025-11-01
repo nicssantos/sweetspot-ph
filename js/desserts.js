@@ -1,4 +1,32 @@
-// ********** DESSERTS PAGE ************
+// ********** DESSERTS PAGE ***********
+
+// Animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px",
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("fade-in-visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(
+    ".intro, .features, .feature-card, .description, .video-section, .contact-section, .dessert-card, .filter-wrapper"
+  );
+
+  sections.forEach((section) => {
+    section.classList.add("fade-in-element");
+    observer.observe(section);
+  });
+});
+
+// Scroll to top button
 let topButton = document.getElementById("topBtn");
 window.onscroll = function () {
   scrollFunction();
@@ -22,6 +50,7 @@ function backToTop() {
   });
 }
 
+// The main thing
 const desserts = [
   {
     name: "Halo-Halo",
@@ -187,9 +216,7 @@ buttons.forEach((button) => {
 
     // Filter based on tag
     const filtered =
-      filter === "ALL"
-        ? desserts
-        : desserts.filter((d) => d.tag === filter);
+      filter === "ALL" ? desserts : desserts.filter((d) => d.tag === filter);
 
     // Render filtered list
     renderDesserts(filtered);

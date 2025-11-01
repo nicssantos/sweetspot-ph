@@ -28,6 +28,41 @@ body {
   transform: translateY(-2px);
 }
 
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dessert-card:nth-child(1).fade-in-visible {
+  transition-delay: 0.4s;
+}
+
+.dessert-card:nth-child(2).fade-in-visible {
+  transition-delay: 0.5s;
+}
+
+.dessert-card:nth-child(3).fade-in-visible {
+  transition-delay: 0.6s;
+}
+
+.dessert-card:nth-child(4).fade-in-visible {
+  transition-delay: 0.65s;
+}
+
+.dessert-card:nth-child(5).fade-in-visible {
+  transition-delay: 0.7s;
+}
+
+.dessert-card:nth-child(6).fade-in-visible {
+  transition-delay: 0.75s;
+}
+
 .heading {
   position: relative;
   padding: 5rem 2rem 4rem;
