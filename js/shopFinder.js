@@ -386,3 +386,45 @@ document.addEventListener("DOMContentLoaded", () => {
     locationBtn.addEventListener("click", getUserLocation);
   }
 });
+
+
+// Scroll animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('fade-in-visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('.wrapper h5, .search-bar, #location-btn, .shop-card, #map');
+  
+  sections.forEach(section => {
+    section.classList.add('fade-in-element');
+    observer.observe(section);
+  });
+});
+
+const shopListObserver = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    mutation.addedNodes.forEach((node) => {
+      if (node.nodeType === 1 && node.classList.contains('shop-card')) {
+        node.classList.add('fade-in-element');
+        observer.observe(node);
+      }
+    });
+  });
+});
+
+// Start observing the shop list for new cards
+const shopList = document.getElementById('shopList');
+if (shopList) {
+  shopListObserver.observe(shopList, { childList: true });
+}
