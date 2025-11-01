@@ -343,7 +343,7 @@
   position: relative;
   height: 600px;
   border-radius: 15px;
-  box-shadow: 0 0px 10px rgba(255, 252, 215, 0.379);
+  box-shadow: 0 0px 20px rgba(36, 36, 36, 0.379);
 }
 
 /* Ensure footer appears above video */

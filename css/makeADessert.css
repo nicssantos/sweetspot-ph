@@ -2,13 +2,123 @@ body {
   padding-top: 80px;
 }
 
+/* ========== ANIMATIONS ========== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes celebrate {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes tap-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+    background: #e0e0e0;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========== MAIN STYLES ========== */
 .main {
   background: url("../img/desserts-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
   background-attachment: fixed;
-  min-height: 100vh; /* Changed from height to min-height */
+  min-height: 100vh;
   padding: 2rem;
 }
 
@@ -46,13 +156,13 @@ body {
   display: block;
 }
 
-/* Hide on desktop */
 @media (min-width: 769px) {
   #topBtn {
     display: none !important;
   }
 }
 
+/* ========== SELECTION PAGE ========== */
 .selection-page {
   display: flex;
   flex-direction: column;
@@ -67,6 +177,7 @@ body {
   font-family: "Lobster Two", sans-serif;
   font-size: clamp(2.5rem, 4vw, 5rem);
   color: #f8bc44;
+  animation: fade-in 0.8s ease-out;
 }
 
 .selection-page p {
@@ -74,6 +185,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: clamp(1rem, 4vw, 1.7rem);
   color: #f8ebcc;
+  animation: fade-in 0.8s ease-out 0.2s backwards;
 }
 
 .selection-wrapper {
@@ -89,6 +201,7 @@ body {
   font-size: clamp(1.2rem, 4vw, 1.9rem);
   color: #f8ebcc;
   margin-bottom: 2rem;
+  animation: fade-in 0.8s ease-out 0.4s backwards;
 }
 
 .desserts-grid {
@@ -105,6 +218,19 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fade-in-scale 0.6s ease-out backwards;
+}
+
+.dessert-item:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.dessert-item:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+.dessert-item:nth-child(3) {
+  animation-delay: 0.9s;
 }
 
 .dessert-image {
@@ -116,10 +242,24 @@ body {
   transition: transform 0.3s ease;
   object-fit: contain;
   cursor: pointer;
+  animation: float 3s ease-in-out infinite;
+}
+
+.dessert-item:nth-child(1) .dessert-image {
+  animation-delay: 0s;
+}
+
+.dessert-item:nth-child(2) .dessert-image {
+  animation-delay: 0.5s;
+}
+
+.dessert-item:nth-child(3) .dessert-image {
+  animation-delay: 1s;
 }
 
 .dessert-item:hover .dessert-image {
   transform: translateY(-10px) scale(1.05);
+  animation: float 3s ease-in-out infinite, wiggle 0.5s ease-in-out infinite;
 }
 
 .dessert-btn {
@@ -149,6 +289,7 @@ body {
   transform: translateY(-2px);
 }
 
+/* ========== BUILDING PAGE ========== */
 .building-page {
   margin: auto;
   padding-bottom: 3rem;
@@ -203,7 +344,7 @@ body {
   border-radius: 20px;
 }
 
-/* PANEL ONE STYLES */
+/* ========== PANEL ONE STYLES ========== */
 .building-title {
   font-weight: 800;
   font-size: clamp(1rem, 4vw, 1.5rem);
@@ -221,11 +362,13 @@ body {
   display: block;
   border-radius: 8px;
   transition: transform 0.3s, border 0.3s;
+  animation: bounce-in 0.6s ease-out;
 }
 
 .building-image.drag-over {
   border: 3px dashed #4CAF50;
   transform: scale(1.05);
+  animation: pulse-glow 1s ease-in-out infinite;
 }
 
 .step-instruction {
@@ -244,6 +387,7 @@ body {
   padding: 1rem;
   width: 60%;
   margin: auto;
+  animation: celebrate 0.8s ease-in-out;
 }
 
 .info-text {
@@ -270,7 +414,7 @@ body {
   font-weight: bold;
 }
 
-/* PANEL TWO STYLES */
+/* ========== PANEL TWO STYLES ========== */
 .ingredients-title {
   text-align: center;
   margin-bottom: 20px;
@@ -331,7 +475,7 @@ body {
   margin: 0;
 }
 
-
+/* ========== RESPONSIVE STYLES ========== */
 @media (max-width: 768px) {
   .main {
     padding: 3rem 1.5rem 6rem 1.5rem;
@@ -373,8 +517,6 @@ body {
   .info-text {
     font-size: 0.9em;
   }
-
-
 }
 
 @media (max-width: 480px) {
@@ -405,18 +547,5 @@ body {
 
   .grid {
     gap: 1.5rem;
-  }
-}
-
-@keyframes tap-pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.95);
-    background: #e0e0e0;
-  }
-  100% {
-    transform: scale(1);
   }
 }
