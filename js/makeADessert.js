@@ -16,14 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
 function backToTop() {
   window.scrollTo({
     top: 0,
-    behavior: "smooth"
+    behavior: "smooth",
   });
 }
 
 // Show/hide button based on scroll position (Mobile only)
 window.addEventListener("scroll", () => {
   const topBtn = document.getElementById("topBtn");
-  
+
   if (topBtn && window.innerWidth <= 768) {
     if (window.pageYOffset > 200) {
       topBtn.style.display = "block";
@@ -36,7 +36,7 @@ window.addEventListener("scroll", () => {
 // Hide button on desktop
 window.addEventListener("resize", () => {
   const topBtn = document.getElementById("topBtn");
-  
+
   if (topBtn && window.innerWidth > 768) {
     topBtn.style.display = "none";
   }
@@ -128,6 +128,13 @@ const desserts = {
       "../img/mad/halo-halo/ingredients/flan.png",
     ],
   },
+  "saging con yelo": {
+    name: "Saging Con Yelo",
+    ingredients: ["to be filled..."],
+    images: ["to be filled..."],
+    steps: ["to be filled.."],
+    ingredientImages: ["to be filled.."],
+  },
 };
 
 // DESSERT BUILDING
@@ -152,7 +159,7 @@ function selectDessert(dessertName) {
   displayPanelTwo();
 }
 
-javascript// ===== PANEL ONE =====
+// ===== PANEL ONE =====
 function displayPanelOne() {
   const panelOne = document.querySelector(".panel-one");
   panelOne.innerHTML = "";
@@ -191,14 +198,15 @@ function displayPanelOne() {
   // Information section - Dynamic text based on device
   const infoEl = document.createElement("p");
   infoEl.classList.add("info-text");
-  
-  const isMobile = 'ontouchstart' in window;
+
+  const isMobile = "ontouchstart" in window;
   if (isMobile) {
     infoEl.textContent = "Tap ingredients in order to build your dessert!";
   } else {
-    infoEl.textContent = "Drag and drop ingredients to the cup above until it is filled!";
+    infoEl.textContent =
+      "Drag and drop ingredients to the cup above until it is filled!";
   }
-  
+
   panelOne.appendChild(infoEl);
 }
 
@@ -324,7 +332,6 @@ function setupDropZone(dropElement) {
       handleIngredientDrop(ingredientIndex, ingredientName);
     });
   }
-  // Mobile doesn't need drop zone events - ingredients are tapped directly
 }
 
 // Handle what happens when ingredient is dropped
@@ -370,8 +377,8 @@ function showCompletionMessage() {
 /// Show error message
 function showErrorMessage(msg) {
   const infoEl = document.querySelector(".info-text");
-  const isMobile = 'ontouchstart' in window;
-  const originalText = isMobile 
+  const isMobile = "ontouchstart" in window;
+  const originalText = isMobile
     ? "Tap ingredients in order to build your dessert!"
     : "Drag and drop ingredients to the cup above until it is filled!";
 

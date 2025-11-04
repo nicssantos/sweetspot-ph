@@ -138,6 +138,7 @@
   line-height: 1.4;
   opacity: 0;
   animation: fadeInUp 1s ease-out 0.8s forwards;
+  margin-bottom: 0.6rem;
 }
 
 .seeDelightsBtn {
