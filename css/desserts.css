@@ -40,27 +40,27 @@ body {
 }
 
 .dessert-card:nth-child(1).fade-in-visible {
-  transition-delay: 0.4s;
+  transition-delay: 0.1s;
 }
 
 .dessert-card:nth-child(2).fade-in-visible {
-  transition-delay: 0.4s;
+  transition-delay: 0.12s;
 }
 
 .dessert-card:nth-child(3).fade-in-visible {
-  transition-delay: 0.4s;
+  transition-delay: 0.15s;
 }
 
 .dessert-card:nth-child(4).fade-in-visible {
-  transition-delay: 0.4s;
+  transition-delay: 0.2s;
 }
 
 .dessert-card:nth-child(5).fade-in-visible {
-  transition-delay: 0.4s;
+  transition-delay: 0.23s;
 }
 
 .dessert-card:nth-child(6).fade-in-visible {
-  transition-delay: 0.4s;
+  transition-delay: 0.25s;
 }
 
 .heading {
