@@ -27,7 +27,7 @@ function backToTop() {
 const shops = [
   {
     name: "Nanay Nidas Homemade Leche Flan",
-    image: "../img/shops/nanay-nidas.jpg",
+    image: "img/shops/nanay-nidas.jpg",
     description:
       "A hidden gem offering exceptional quality desserts at very reasonable prices.",
     address:
@@ -39,7 +39,7 @@ const shops = [
   },
   {
     name: "The Original Buko Pie Bakeshop",
-    image: "../img/shops/original-buko-pie.png",
+    image: "img/shops/original-buko-pie.png",
     description:
       "Famous for its authentic Filipino buko pies, freshly baked daily using traditional recipes. A must-visit for coconut dessert lovers.",
     address: "Manila S Rd, Los Baños, Laguna, Philippines",
@@ -50,7 +50,7 @@ const shops = [
   },
   {
     name: "Original Digman Halo-Halo and Home Made Siopao",
-    image: "../img/shops/digman.jpg",
+    image: "img/shops/digman.jpg",
     description:
       "This establishment has been serving its famous halo-halo since 1969, drawing patrons with its authentic flavor and traditional preparation methods.",
     address: "H.F. Rubio St, Bacoor, Cavite, Philippines",
@@ -61,7 +61,7 @@ const shops = [
   },
   {
     name: "Max's Restaurant - Karama",
-    image: "../img/shops/maxs.jpg",
+    image: "img/shops/maxs.jpg",
     description:
       "A Filipino restaurant in Dubai known for its hearty meals, classic home-style dishes, and warm hospitality. Perfect for cravings from back home.",
     address:
@@ -73,7 +73,7 @@ const shops = [
   },
   {
     name: "Panaderia Restaurant",
-    image: "../img/shops/panaderia.png",
+    image: "img/shops/panaderia.png",
     description:
       "A Filipino restaurant in Ras Al Khaimah offering authentic home-style dishes, freshly baked breads, and traditional Filipino flavors for a taste of home.",
     address: "QXR9+8V6 - Al Muntasir Rd - Al Nakheel - Ras Al Khaimah, UAE",
@@ -141,7 +141,7 @@ function displayShops(shopsToDisplay, showAll = false) {
     card.className = "shop-card";
     card.innerHTML = `
       <div class="image-container">
-        <img src="${shop.image}" alt="${shop.name}" class="shop-image" onerror="this.src='../img/shops/placeholder.jpg'">
+        <img src="${shop.image}" alt="${shop.name}" class="shop-image" onerror="this.src='img/shops/placeholder.jpg'">
       </div>
       <div class="shop-info">
         <h3>${shop.name}</h3>
