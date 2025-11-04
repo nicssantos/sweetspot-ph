@@ -69,6 +69,15 @@ const desserts = [
       "Evaporated milk",
       "Ube ice cream",
     ],
+    steps: [
+      "Prepare all ingredients and chill them in the refrigerator for at least 2 hours.",
+      "In a tall glass, layer the sweetened beans, banana slices, nata de coco, and kaong at the bottom.",
+      "Add a slice of leche flan and a spoonful of ube halaya on top of the layers.",
+      "Fill the glass with finely shaved ice, packing it down gently.",
+      "Pour evaporated milk generously over the shaved ice.",
+      "Top with a scoop of ube ice cream and add remaining toppings.",
+      "Serve immediately with a long spoon. Mix everything together before eating to enjoy all the flavors!",
+    ],
   },
   {
     name: "Leche Flan",
@@ -86,6 +95,16 @@ const desserts = [
       "Vanilla extract",
       "Lemon zest (optional)",
     ],
+    steps: [
+      "Make the caramel by melting 1 cup of sugar in a llanera or mold over low heat until golden brown. Swirl to coat the bottom evenly and let it cool.",
+      "In a large bowl, combine 10-12 egg yolks (save the whites for other recipes).",
+      "Add 1 can of condensed milk and 1 can of evaporated milk to the egg yolks.",
+      "Mix gently with a whisk or fork, avoiding creating too many bubbles. Add vanilla extract and lemon zest if desired.",
+      "Strain the mixture through a fine sieve to remove any lumps and ensure a smooth texture.",
+      "Pour the mixture over the cooled caramel in the mold.",
+      "Cover with aluminum foil and steam for 45-60 minutes, or bake in a water bath at 350°F for 50-60 minutes until set.",
+      "Let it cool completely, then refrigerate for at least 4 hours or overnight. Invert onto a plate to serve.",
+    ],
   },
   {
     name: "Ube Halaya",
@@ -102,6 +121,14 @@ const desserts = [
       "Butter",
       "Sugar",
       "Vanilla extract",
+    ],
+    steps: [
+      "Peel and boil the purple yam until soft, then mash thoroughly.",
+      "In a pan over low heat, combine the mashed yam with butter, condensed milk, evaporated milk, and sugar.",
+      "Cook while constantly stirring to prevent sticking, until mixture thickens and leaves the sides of the pan.",
+      "Add vanilla extract and continue stirring until fully incorporated.",
+      "Transfer to a container, smooth the surface, and let it cool to room temperature.",
+      "Chill in the refrigerator before serving.",
     ],
   },
   {
@@ -123,6 +150,14 @@ const desserts = [
       "Banana leaves",
       "Grated coconut",
     ],
+    steps: [
+      "Preheat the oven to 375°F (190°C) and line a baking pan with greased banana leaves.",
+      "In a bowl, mix rice flour, sugar, baking powder, eggs, and coconut milk until smooth.",
+      "Pour the batter into the prepared pan, filling halfway.",
+      "Top with slices of salted egg and cheese.",
+      "Bake for 25-30 minutes until the top is lightly golden.",
+      "Brush with butter and sprinkle with grated coconut before serving warm.",
+    ],
   },
   {
     name: "Turon",
@@ -138,6 +173,16 @@ const desserts = [
       "Spring roll wrappers",
       "Brown sugar",
       "Cooking oil",
+    ],
+    steps: [
+      "Peel 6-8 ripe saba bananas and slice them in half lengthwise.",
+      "Place a banana half and a strip of jackfruit on a spring roll wrapper.",
+      "Sprinkle brown sugar over the banana and jackfruit.",
+      "Roll the wrapper tightly, folding in the sides. Seal the edge with water.",
+      "Heat cooking oil in a deep pan over medium heat (about 350°F).",
+      "Once oil is hot, roll each turon in brown sugar before frying for extra caramelization.",
+      "Fry 3-4 pieces at a time until golden brown and crispy, about 3-4 minutes per side.",
+      "Remove and drain on paper towels. Let cool slightly before serving. The sugar coating will harden into a delicious caramel shell!",
     ],
   },
   {
@@ -156,6 +201,14 @@ const desserts = [
       "Pandan leaves",
       "Sugar",
       "Nata de coco (optional)",
+    ],
+    steps: [
+      "Prepare pandan-flavored gulaman by dissolving agar-agar with water and sugar, then let it set and cut into cubes.",
+      "In a large bowl, mix young coconut strips, nata de coco, and pandan gulaman cubes.",
+      "Add condensed milk and all-purpose cream to the mixture and stir gently.",
+      "Add sugar to taste and mix until fully combined.",
+      "Chill in the refrigerator for at least 1-2 hours before serving.",
+      "Serve cold in individual bowls or glasses.",
     ],
   },
 ];
@@ -196,12 +249,75 @@ function renderDesserts(list = desserts) {
       </div>
     `;
 
+    card.addEventListener("click", () => openModal(dessert));
     grid.appendChild(card);
   });
 }
 
-// Render all desserts initially
-renderDesserts();
+function openModal(dessert) {
+  const modal = document.getElementById("modalOverlay");
+  const modalContent = document.getElementById("modalContent");
+
+  const ingredientsList = dessert.ingredients
+    .map((ing) => `<li>${ing}</li>`)
+    .join("");
+
+  const stepsList = dessert.steps
+    .map(
+      (step, index) => `<li><strong>Step ${index + 1}:</strong> ${step}</li>`
+    )
+    .join("");
+
+  modalContent.innerHTML = `
+                <div class="modal-header">
+                    <span class="tag">${dessert.tag}</span>
+                    <h2>${dessert.name}</h2>
+                </div>
+                <img src="${dessert.image}" alt="${dessert.name}" class="modal-image">
+                <p class="modal-description">${dessert.description}</p>
+                
+                <div class="modal-section">
+                    <h3>Origin Story</h3>
+                    <p>${dessert.history}</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Key Ingredients</h3>
+                    <ul class="modal-ingredients">
+                        ${ingredientsList}
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>How to Make It</h3>
+                    <ol class="modal-steps">
+                        ${stepsList}
+                    </ol>
+                </div>
+            `;
+
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+  const modal = document.getElementById("modalOverlay");
+  modal.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+document.getElementById("modalClose").addEventListener("click", closeModal);
+document.getElementById("modalOverlay").addEventListener("click", (e) => {
+  if (e.target.id === "modalOverlay") {
+    closeModal();
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeModal();
+  }
+});
 
 // Filter buttons
 const buttons = document.querySelectorAll(".filters button");
@@ -222,3 +338,6 @@ buttons.forEach((button) => {
     renderDesserts(filtered);
   });
 });
+
+// Render all desserts initially
+renderDesserts();

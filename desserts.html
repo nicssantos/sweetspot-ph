@@ -13,9 +13,21 @@
   </head>
 
   <body>
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-panel" id="modalPanel">
+        <button class="modal-close" id="modalClose">
+          <img src="img/x-symbol.svg" alt="exit button"
+          width="15px"
+          height="auto">
+        </button>
+        <div class="modal-content" id="modalContent"></div>
+      </div>
+    </div>
+
     <nav class="navbar">
       <div class="logo">
-        <a href="home.html"><img src="img/icon.png" /></a>
+        <a href="home.html"><img src="img/icon.png" alt="sweetspot.ph logo"/></a>
       </div>
 
       <!-- Hamburger Icon -->
@@ -36,19 +48,26 @@
 
     <!-- Main -->
     <div class="main">
-      <button onclick="backToTop()" id="topBtn" title="Go to top"><img src="https://www.svgrepo.com/show/500715/top.svg" alt="Upward arrow" width="25px" height="auto"></button>
+      <button onclick="backToTop()" id="topBtn" title="Go to top">
+        <img
+          src="https://www.svgrepo.com/show/500715/top.svg"
+          alt="Upward arrow"
+          width="25px"
+          height="auto"
+        />
+      </button>
       <!-- Heading -->
       <div class="heading">
         <div class="heading-overlay"></div>
         <h1>Discover Filipino Desserts You'll Love</h1>
         <p>
-          Explore the rich and colorful world of Filipino sweets — from classic favorites to new creations, all in one spot.
+          Explore the rich and colorful world of Filipino sweets — from classic
+          favorites to new creations, all in one spot.
         </p>
       </div>
 
       <!-- Filter function -->
       <div class="filter-wrapper">
-        <!-- <span>FILTER BY CATEGORY:</span> -->
         <div class="filters">
           <button data-filter="ALL" class="active">ALL</button>
           <button data-filter="COLD">COLD</button>

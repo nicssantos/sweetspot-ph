@@ -292,6 +292,203 @@ body {
   letter-spacing: 0.5px;
 }
 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.096);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-panel {
+  background: rgba(248, 235, 204, 0.98);
+  border: 2px solid rgba(39, 87, 128, 0.3);
+  margin-top: 3.5rem;
+  padding: 1rem;
+  border-radius: 24px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.modal-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-overlay.active .modal-panel {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #275780;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: #7bb5e8;
+  rotate: 90deg;
+}
+
+
+.modal-content {
+  padding: 2rem;
+}
+
+.modal-header {
+  margin-bottom: 2rem;
+}
+
+.modal-header .tag {
+  display: inline-block;
+  background: rgba(58, 133, 208, 0.15);
+  border: 1px solid rgba(55, 74, 202, 0.419);
+  color: #2e2e2e;
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.8px;
+}
+
+.modal-header h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #187fc4 0%, #143751 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modal-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.modal-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #2e2e2e;
+  margin-bottom: 2rem;
+}
+
+.modal-section {
+  margin-bottom: 2.5rem;
+}
+
+.modal-section h3 {
+  color: #275780;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  border-bottom: 2px solid rgba(39, 87, 128, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.modal-section p {
+  color: #2e2e2e;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.modal-ingredients {
+  list-style: none;
+  color: #2e2e2e;
+  line-height: 2;
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.5rem;
+}
+
+.modal-ingredients li {
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.modal-ingredients li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #261566;
+  font-weight: bold;
+}
+
+.modal-steps {
+  list-style: none;
+  counter-reset: step-counter;
+  color: #2e2e2e;
+  line-height: 2;
+  font-size: 1rem;
+}
+
+.modal-steps li {
+  counter-increment: step-counter;
+  margin-bottom: 1.5rem;
+  padding-left: 3rem;
+  position: relative;
+}
+
+.modal-steps li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(135deg, #187fc4 0%, #275780 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.modal-steps li strong {
+  color: #275780;
+  display: none;
+}
+
 @media (max-width: 768px) {
   .heading {
     padding: 4rem 1.5rem 3rem;
@@ -316,6 +513,18 @@ body {
 
   .container {
     padding: 1.5rem;
+  }
+
+  .modal-panel {
+    max-height: 85vh;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .modal-image {
+    height: 250px;
   }
 }
 
