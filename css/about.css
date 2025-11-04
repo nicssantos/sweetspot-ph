@@ -89,7 +89,7 @@ body {
   padding: 3rem 2rem;
   border-radius: 25px;
   background-color: #f8ebcc;
-  color: #202d5b;
+  color: #1e4261;
 }
 
 .intro p:first-of-type {
@@ -168,7 +168,7 @@ body {
   margin-bottom: 1.5rem;
   font-weight: bold;
   text-align: center;
-  color: #141357;
+  color: #1e4261;
 }
 
 .video-section iframe {
@@ -182,7 +182,7 @@ body {
   flex: 1;
   min-width: 350px;
   max-width: 400px;
-  color: #141357;
+  color: #1e4261;
 }
 
 .contact-section h3 {
