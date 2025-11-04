@@ -150,8 +150,23 @@ function displayShops(shopsToDisplay, showAll = false) {
         <a href="${shop.mapLink}" target="_blank" class="map-link">View on Map →</a>
       </div>
     `;
+
+    // Add click listener to card - INSIDE the forEach loop
+    card.addEventListener("click", () => {
+      map.setCenter({ lat: shop.lat, lng: shop.lng });
+      map.setZoom(16);
+      infoWindow.open(map, marker);
+
+      if (window.innerWidth >= 1024) {
+        window.scrollTo({
+          top: 280,
+          behavior: "smooth",
+        });
+      }
+    });
+
     shopListEl.appendChild(card);
-  });
+  }); // <-- forEach loop ends here
 
   // Add "Show More / Show Less" button if needed
   if (shopsToDisplay.length > 3) {
@@ -171,7 +186,9 @@ function displayShops(shopsToDisplay, showAll = false) {
   // Center map on displayed shops
   if (shopsToShow.length > 0) {
     const bounds = new google.maps.LatLngBounds();
-    shopsToShow.forEach((shop) => bounds.extend({ lat: shop.lat, lng: shop.lng }));
+    shopsToShow.forEach((shop) =>
+      bounds.extend({ lat: shop.lat, lng: shop.lng })
+    );
     if (userMarker) bounds.extend(userMarker.getPosition());
     map.fitBounds(bounds);
   }
