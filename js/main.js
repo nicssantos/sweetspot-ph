@@ -3,7 +3,6 @@ const navLinks = document.getElementById("nav-links");
 
 hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("show");
-  searchContainer.classList.toggle("show");
 });
 
 window.addEventListener('scroll', function() {
