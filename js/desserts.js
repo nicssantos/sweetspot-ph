@@ -17,7 +17,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll(
-    ".intro, .features, .feature-card, .description, .video-section, .contact-section, .dessert-card, .filter-wrapper"
+    ".dessert-card, .filter-wrapper"
   );
 
   sections.forEach((section) => {

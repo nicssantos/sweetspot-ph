@@ -7,6 +7,41 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dessert-card:nth-child(1).fade-in-visible {
+  transition-delay: 0.05s;
+}
+
+.dessert-card:nth-child(2).fade-in-visible {
+  transition-delay: 0.1s;
+}
+
+.dessert-card:nth-child(3).fade-in-visible {
+  transition-delay: 0.15s;
+}
+
+.dessert-card:nth-child(4).fade-in-visible {
+  transition-delay: 0.2s;
+}
+
+.dessert-card:nth-child(5).fade-in-visible {
+  transition-delay: 0.25s;
+}
+
+.dessert-card:nth-child(6).fade-in-visible {
+  transition-delay: 0.3s;
+}
+
 #topBtn {
   display: none;
   position: fixed;
@@ -26,41 +61,6 @@ body {
 #topBtn:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
   transform: translateY(-2px);
-}
-
-.fade-in-element {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.dessert-card:nth-child(1).fade-in-visible {
-  transition-delay: 0.1s;
-}
-
-.dessert-card:nth-child(2).fade-in-visible {
-  transition-delay: 0.12s;
-}
-
-.dessert-card:nth-child(3).fade-in-visible {
-  transition-delay: 0.15s;
-}
-
-.dessert-card:nth-child(4).fade-in-visible {
-  transition-delay: 0.2s;
-}
-
-.dessert-card:nth-child(5).fade-in-visible {
-  transition-delay: 0.23s;
-}
-
-.dessert-card:nth-child(6).fade-in-visible {
-  transition-delay: 0.25s;
 }
 
 .heading {
@@ -138,6 +138,19 @@ body {
   font-weight: 500;
   letter-spacing: 0.5px;
   cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filters button:hover {
+  background: #275780;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(39, 87, 128, 0.4);
+}
+
+.filters button.active {
+  background: #275780;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(26, 71, 105, 0.4);
 }
 
 .container {
@@ -158,6 +171,7 @@ body {
   border-radius: 24px;
   overflow: hidden;
   position: relative;
+  transition: transform 0.4s ease, border-color 0.4s ease, background 0.4s ease;
 }
 
 .dessert-card::before {
@@ -291,6 +305,7 @@ body {
   margin-bottom: 1rem;
   letter-spacing: 0.5px;
 }
+
 
 .modal-overlay {
   position: fixed;
